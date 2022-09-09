@@ -48,8 +48,8 @@ const BlogForm: React.FC = () => {
         onChange={(e) => setTitle(e.target.value)}
       />
       <input
-        required
         type="text"
+        required
         value={body}
         placeholder="body"
         onChange={(e) => setBody(e.target.value)}

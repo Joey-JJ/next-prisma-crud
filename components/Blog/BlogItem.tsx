@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import type { Post } from "@prisma/client";
 import { useRouter } from "next/router";
 import BlogEditingForm from "./BlogEditingForm";
+import classes from "../../styles/BlogItem.module.css";
 
 interface Props {
   post: Post;
@@ -41,16 +42,17 @@ const BlogItem: React.FC<Props> = (props) => {
 
   return (
     <>
-      <div>
-        <h1>{`${post.title}`}</h1>
-        <h3>{`Author: ${post.author}`}</h3>
-        <p>{`${post.body}`}</p>
-        <button onClick={onDelete}>X</button>
-        <button onClick={() => setIsEditing((prevstate) => !prevstate)}>
-          Edit
-        </button>
+      <div className={classes.container}>
+        <h1 className={classes.title}>{`${post.title}`}</h1>
+        <h3 className={classes.author}>{`By ${post.author}`}</h3>
+        <p className={classes.body}>{`${post.body}`}</p>
+        <div className={classes.buttons}>
+          <button onClick={onDelete}>Delete</button>
+          <button onClick={() => setIsEditing((prevstate) => !prevstate)}>
+            Edit
+          </button>
+        </div>
       </div>
-      <br />
     </>
   );
 };

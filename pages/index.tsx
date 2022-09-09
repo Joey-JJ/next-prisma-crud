@@ -1,7 +1,9 @@
+import React, { useState } from "react";
 import type { NextPage } from "next";
 import { Post, PrismaClient } from "@prisma/client";
-import BlogForm from "../components/BlogForm";
-import BlogItem from "../components/BlogItem";
+import BlogForm from "../components/Blog/BlogForm";
+import BlogItem from "../components/Blog/BlogItem";
+import classes from "../styles/Home.module.css";
 
 interface Props {
   data: Post[];
@@ -24,9 +26,19 @@ const Home: NextPage<Props> = (props) => {
     <BlogItem key={post.id} post={post} />
   ));
 
+  const [formOpen, setFormOpen] = useState(false);
+
   return (
-    <div>
-      <BlogForm />
+    <div className={classes.container}>
+      {/* {formOpen && <BlogForm />}
+      {!formOpen && (
+        <button
+          className="btn-primary"
+          onClick={() => setFormOpen((prevState) => !prevState)}
+        >
+          Add blog
+        </button>
+      )} */}
       {blogs}
     </div>
   );

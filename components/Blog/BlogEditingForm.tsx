@@ -32,10 +32,6 @@ const BlogEditingForm: React.FC<Props> = (props) => {
       }),
     });
 
-    if (!res.ok) {
-      throw new Error("ERROR, put request failed.");
-    }
-
     setIsEditing((prevstate: boolean) => !prevstate);
     router.reload();
   };
@@ -43,21 +39,24 @@ const BlogEditingForm: React.FC<Props> = (props) => {
   return (
     <form onSubmit={submitHandler}>
       <input
+        required
         type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
       <input
+        required
         type="text"
         value={author}
         onChange={(e) => setAuthor(e.target.value)}
       />
       <input
+        required
         type="text"
         value={body}
         onChange={(e) => setBody(e.target.value)}
       />
-      <button onClick={onDelete}>X</button>
+      <button onClick={onDelete}>Delete</button>
       <button type="submit">Save</button>
     </form>
   );

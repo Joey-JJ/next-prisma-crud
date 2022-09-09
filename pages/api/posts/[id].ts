@@ -36,7 +36,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
           },
         });
 
-        res.status(200).json({ message: "Post deleted", post: edited });
+        res.status(200).json({ message: "Post updated", post: edited });
       } catch (e) {
         res.status(404).json({ message: "Request failed", error: e });
       }
