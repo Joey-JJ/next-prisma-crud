@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import { Post, PrismaClient } from "@prisma/client";
-import BlogForm from "../components/blogForm";
+import BlogForm from "../components/BlogForm";
 import BlogItem from "../components/BlogItem";
 
 interface Props {
@@ -20,14 +20,15 @@ export const getServerSideProps = async () => {
 
 const Home: NextPage<Props> = (props) => {
   const { data } = props;
+  const blogs = data.map((post: Post) => (
+    <BlogItem key={post.id} post={post} />
+  ));
+
   return (
-    <>
+    <div>
       <BlogForm />
-      <br />
-      {data.map((post: any) => (
-        <BlogItem key={post.id} post={post} />
-      ))}
-    </>
+      {blogs}
+    </div>
   );
 };
 
