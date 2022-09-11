@@ -1,25 +1,41 @@
 .container {
-  width: 15rem;
-  height: 15rem;
+  width: 80%;
+  height: 12rem;
   border: 1px solid #bbb;
   border-radius: 1rem;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
     rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-  overflow: scroll;
   padding: 0.8rem;
-  position: relative;
+  display: flex;
+}
+
+.container img {
+  border-radius: 5px;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 1.2em;
+  font-weight: 700;
 }
 
 .author {
   padding-left: 0.5rem;
   font-weight: 300;
-  font-size: 1em;
+  font-size: 0.9em;
   color: #bbb;
 }
 
 .body {
   word-wrap: break-word;
   overflow: scroll;
+  font-size: 0.7em;
 }
 
 .buttons {
